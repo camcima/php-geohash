@@ -1,5 +1,7 @@
 <?php
 
+namespace Camcima;
+
 class GeoHash {
   
   private $hash;
