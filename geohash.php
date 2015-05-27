@@ -18,7 +18,6 @@ class GeoHash {
     if(!$this->hash) {
       if(empty($this->latitude)) throw new \Exception("Latitude is required");
       if(empty($this->longitude)) throw new \Exception("Longitude is required");
-      if(empty($this->longitude)) throw new \Exception("Longitude is required");
       $this->hash = $this->createHash();
     }
     return $this->hash;
