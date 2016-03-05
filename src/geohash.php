@@ -31,6 +31,38 @@ class GeoHash
     private $precision;
 
     /**
+     * @param string $hash
+     *
+     * @return GeoHash
+     */
+    public static function fromHash(string $hash): GeoHash
+    {
+        $geoHash = new GeoHash();
+        $geoHash->setHash($hash);
+
+        return $geoHash;
+    }
+
+    /**
+     * @param float $latitude
+     * @param float $longitude
+     * @param float $precision
+     *
+     * @return GeoHash
+     */
+    public static function fromCoordinates(float $latitude, float $longitude, float $precision = 0): GeoHash
+    {
+        $geoHash = new GeoHash();
+        $geoHash->setLatitude($latitude);
+        $geoHash->setLongitude($longitude);
+        if ($precision) {
+            $geoHash->setPrecision($precision);
+        }
+
+        return $geoHash;
+    }
+
+    /**
      * @return string
      */
     public function getHash(): string

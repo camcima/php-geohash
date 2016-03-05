@@ -13,12 +13,7 @@ class GeoHashTest extends \PHPUnit_Framework_TestCase
      */
     public function testEncode($latitude, $longitude, $precision, $hash)
     {
-        $geoHash = new GeoHash();
-        $geoHash->setLatitude($latitude);
-        $geoHash->setLongitude($longitude);
-        if ($precision) {
-            $geoHash->setPrecision($precision);
-        }
+        $geoHash = GeoHash::fromCoordinates($latitude, $longitude, $precision);
 
         $this->assertEquals($hash, $geoHash->getHash());
     }
@@ -32,8 +27,7 @@ class GeoHashTest extends \PHPUnit_Framework_TestCase
      */
     public function testDecode($latitude, $longitude, $precision, $hash)
     {
-        $geoHash = new GeoHash();
-        $geoHash->setHash($hash);
+        $geoHash = GeoHash::fromHash($hash);
 
         $this->assertEquals($latitude, $geoHash->getLatitude());
         $this->assertEquals($longitude, $geoHash->getLongitude());
@@ -45,16 +39,16 @@ class GeoHashTest extends \PHPUnit_Framework_TestCase
     public function geohashProvider()
     {
         return [
-            [31.283131, 121.500831, null, 'wtw3uyfjqw61'],
-            [31.28, 121.500831, null, 'wtw3uy65nwdh'],
-            [31.283131, 121.500, null, 'wtw3uyct7nq3'],
-            [31.283131, 121.500, null, 'wtw3uyct7nq3'],
-            [-25.382708, -49.265506, null, '6gkzwgjzn820'],
-            [-25.383, -49.266, null, '6gkzwgjt'],
-            [-25.427, -49.315, null, '6gkzmg1u'],
-            [45.37, -121.7, null, 'c216ne'],
+            [31.283131, 121.500831, 0, 'wtw3uyfjqw61'],
+            [31.28, 121.500831, 0, 'wtw3uy65nwdh'],
+            [31.283131, 121.500, 0, 'wtw3uyct7nq3'],
+            [31.283131, 121.500, 0, 'wtw3uyct7nq3'],
+            [-25.382708, -49.265506, 0, '6gkzwgjzn820'],
+            [-25.383, -49.266, 0, '6gkzwgjt'],
+            [-25.427, -49.315, 0, '6gkzmg1u'],
+            [45.37, -121.7, 0, 'c216ne'],
             [26.08461, -80.38893, .000001, 'dhwu6sw9f5t'],
-            [52.524451, 13.387871, null, 'u33db9uc0524'],
+            [52.524451, 13.387871, 0, 'u33db9uc0524'],
         ];
     }
 }
