@@ -2,7 +2,11 @@
     "name": "camcima/php-geohash",
     "type": "library",
     "description": "Refactored GeoHash package",
-    "keywords": ["geohash", "composer", "php"],
+    "keywords": [
+        "geohash",
+        "composer",
+        "php"
+    ],
     "homepage": "https://github.com/camcima/php-geohash",
     "license": "MIT",
     "authors": [
@@ -12,11 +16,15 @@
         }
     ],
     "require": {
-        "php": ">=5.3.0"
+        "php": ">=7.0"
+    },
+    "require-dev": {
+        "fabpot/php-cs-fixer": "^1.11",
+        "phpunit/phpunit": "^5.2"
     },
     "autoload": {
-        "psr-0": {
-            "Camcima": "Package"
+        "psr-4": {
+            "Camcima\\": "src/"
         }
     }
 }
