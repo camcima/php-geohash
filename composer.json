@@ -19,7 +19,7 @@
         "php": ">=7.0"
     },
     "require-dev": {
-        "fabpot/php-cs-fixer": "^1.11",
+        "friendsofphp/php-cs-fixer": "^1.11",
         "phpunit/phpunit": "^5.2"
     },
     "autoload": {
